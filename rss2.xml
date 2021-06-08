@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>卓的博客</title>
+    <link>http://example.com/</link>
+    
+    <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>什么都没有</description>
+    <pubDate>Tue, 08 Jun 2021 13:46:09 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title></title>
+      <link>http://example.com/2021/06/08/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20_etc_fstab%20%E6%96%87%E4%BB%B6/</link>
+      <guid>http://example.com/2021/06/08/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20_etc_fstab%20%E6%96%87%E4%BB%B6/</guid>
+      <pubDate>Tue, 08 Jun 2021 13:46:09 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;Linux操作系统-etc-fstab-文件&quot;&gt;&lt;a href=&quot;#Linux操作系统-etc-fstab-文件&quot; class=&quot;headerlink&quot; title=&quot;Linux操作系统 /etc/fstab 文件&quot;&gt;&lt;/a&gt;Linux操作系统 /etc/fsta</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="Linux操作系统-etc-fstab-文件"><a href="#Linux操作系统-etc-fstab-文件" class="headerlink" title="Linux操作系统 /etc/fstab 文件"></a>Linux操作系统 /etc/fstab 文件</h1><hr><p><strong>fastab</strong>文件是一个用于配置磁盘挂载的文件<br>磁盘手动挂载后，将磁盘挂载信息写入到fstab文件中，那么在系统下一次启动时磁盘会根据fstab文件中的挂载信息自动挂载，否则每当系统重启，我们仍需要重新手动进行挂载。</p><blockquote><ul><li><strong>挂载限制</strong></li><li>根目录必须挂载，且一定要优先于其他mount point挂载。</li><li>挂载点必须是已经存在的目录。</li><li>所有挂载点在同一时间只能被挂载一次。</li><li>所有分区在同一时间只能被挂载一次。</li><li>可以指定任意挂载点，但要遵守系统目录架构原则。</li></ul></blockquote><hr><h1 id="fstab文件参数作用"><a href="#fstab文件参数作用" class="headerlink" title="fstab文件参数作用"></a>fstab文件参数作用</h1><blockquote><hr><p><strong># &lt;file system&gt; &ensp; &lt;dir&gt; &ensp; &lt;type&gt; &ensp; &emsp;&lt;options&gt; &emsp;&emsp;&emsp;&ensp;&emsp; &lt;dump&gt; &ensp;&lt;pass&gt;</strong><br>&emsp; &emsp; tmpfs &emsp; &emsp; &emsp;/tmp &emsp;&emsp;tmpfs &emsp;&emsp;nodev,nosuid &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;0 &emsp;&emsp; &emsp;&emsp;0<br>&ensp; &emsp; /dev/sda1 &emsp; &emsp;/ &emsp;&emsp;&emsp;&emsp;ext4 &emsp;&ensp;&ensp;defaults,noatime &emsp;&emsp;&emsp;&emsp;&emsp;0 &emsp;&emsp; &emsp;&emsp;1<br>&ensp; &emsp; /dev/sda2 &emsp; &emsp;none &emsp;&emsp;swap &emsp;&ensp;&ensp;&emsp;defaults &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&emsp;0 &emsp;&emsp; &emsp;&emsp;0<br>&ensp; &emsp; /dev/sda3 &emsp; &emsp;/home &ensp;&emsp;ext4 &ensp;&ensp;&ensp;defaults,noatime &emsp;&emsp;&emsp;&emsp;&emsp; 0 &emsp;&emsp; &emsp;&emsp;2</p></blockquote><hr><p><strong>各字段含义：</strong></p><hr><p><strong>&lt;file system&gt; 挂载的分区或存储设备</strong></p><hr><p><strong>&lt;dir&gt; 分区或设备挂载的位置</strong></p><hr><p><strong>&lt;type&gt; 所挂载设备或分区的文件系统类型</strong><br><br><br><strong>文件系统类型，例如：ext2,ext3,ext4,reiserfs, xfs, jfs, smbfs, iso9660, vfat, ntfs, swap,auto。</strong><br><strong>设置成auto类型，mount 命令会猜测使用的文件系统类型，有利于CDROM和DVD设备的使用。</strong></p><hr><p><strong>&lt;options&gt; 挂载时使用的参数</strong><br><strong>auto</strong> 在启动时或者键入mount -a命令时自动挂载。<br><strong>noauto</strong> 只在命令下挂载。<br><strong>exec</strong> 允许执行此分区的二进制文件。<br><strong>noexec</strong> 不允许执行此文件系统上的二进制文件。<br><strong>ro</strong> 以只读模式挂载文件系统。<br><strong>rw</strong> 以读写模式挂载文件系统。<br><strong>user</strong> 允许任意用户挂载此文件系统，若无定义，默认为noexec、nosuid、nodev参数。<br><strong>users</strong> 允许所有users组中的用户挂载文件系统。<br><strong>nouser</strong> 只允许被root用户挂载。<br><strong>owener</strong> 只允许设备所有者用户挂载。<br><strong>sync</strong> I/O同步进行。<br><strong>async</strong> I/O异步进行。<br><strong>dev</strong> 解析文件系统上的块设备。<br><strong>nodev</strong> 不解析文件系统上的块设备。<br><strong>suid</strong> 允许suid操作和设定sgid位。这一参数一般用于特殊任务，使一般用户在运行程序时临时提升权限。<br><strong>nosuid</strong> 禁止suid操作和设定sgid位。<br><strong>noatime</strong> 不更新文件系统上的inode访问记录，可以提升性能。<br><strong>nodiratime</strong> 不更新文件系统上的目录inode访问记录，可以提升性能。<br><strong>relatime</strong> 实时更新文件系统上的inode访问记录。<br><strong>defaults</strong> 使用文件系统的默认挂载参数。</p><hr><p><strong>&lt;dump&gt; dump工具，设置备份机制</strong><br>参数为0和1，1进行备份，0不进行备份。<br>未安装dump时应设置为0。</p><hr><p><strong>&lt;pass&gt; 设置fsck检查文件系统的检查顺序</strong><br>参数为0,1和2。<br>根目录为最高优先权，参数设置为1。<br>其他检查设备参数设置为2。<br>参数0表示不会被fsck检查。</p><hr>]]></content:encoded>
+      
+      
+      
+      
+      <comments>http://example.com/2021/06/08/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20_etc_fstab%20%E6%96%87%E4%BB%B6/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>
