@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title></title>
-    <url>/2021/06/08/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20_etc_fstab%20%E6%96%87%E4%BB%B6/</url>
+    <url>/2021/06/08/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20_etc_fstab%20%E6%96%87%E4%BB%B6%20/</url>
     <content><![CDATA[<h1 id="Linux操作系统-etc-fstab-文件"><a href="#Linux操作系统-etc-fstab-文件" class="headerlink" title="Linux操作系统 /etc/fstab 文件"></a>Linux操作系统 /etc/fstab 文件</h1><hr>
 <p><strong>fastab</strong>文件是一个用于配置磁盘挂载的文件<br>磁盘手动挂载后，将磁盘挂载信息写入到fstab文件中，那么在系统下一次启动时磁盘会根据fstab文件中的挂载信息自动挂载，否则每当系统重启，我们仍需要重新手动进行挂载。</p>
 <blockquote>
@@ -27,7 +27,7 @@
 <hr>
 <p><strong>&lt;dir&gt; 分区或设备挂载的位置</strong></p>
 <hr>
-<p><strong>&lt;type&gt; 所挂载设备或分区的文件系统类型</strong><br><br><br><strong>文件系统类型，例如：ext2,ext3,ext4,reiserfs, xfs, jfs, smbfs, iso9660, vfat, ntfs, swap,auto。</strong><br><strong>设置成auto类型，mount 命令会猜测使用的文件系统类型，有利于CDROM和DVD设备的使用。</strong></p>
+<p><strong>&lt;type&gt; 所挂载设备或分区的文件系统类型</strong><br>文件系统类型，例如：ext2,ext3,ext4,reiserfs, xfs, jfs, smbfs, iso9660, vfat, ntfs, swap,auto。**<br>**设置成auto类型，mount 命令会猜测使用的文件系统类型，有利于CDROM和DVD设备的使用。</p>
 <hr>
 <p><strong>&lt;options&gt; 挂载时使用的参数</strong><br><strong>auto</strong> 在启动时或者键入mount -a命令时自动挂载。<br><strong>noauto</strong> 只在命令下挂载。<br><strong>exec</strong> 允许执行此分区的二进制文件。<br><strong>noexec</strong> 不允许执行此文件系统上的二进制文件。<br><strong>ro</strong> 以只读模式挂载文件系统。<br><strong>rw</strong> 以读写模式挂载文件系统。<br><strong>user</strong> 允许任意用户挂载此文件系统，若无定义，默认为noexec、nosuid、nodev参数。<br><strong>users</strong> 允许所有users组中的用户挂载文件系统。<br><strong>nouser</strong> 只允许被root用户挂载。<br><strong>owener</strong> 只允许设备所有者用户挂载。<br><strong>sync</strong> I/O同步进行。<br><strong>async</strong> I/O异步进行。<br><strong>dev</strong> 解析文件系统上的块设备。<br><strong>nodev</strong> 不解析文件系统上的块设备。<br><strong>suid</strong> 允许suid操作和设定sgid位。这一参数一般用于特殊任务，使一般用户在运行程序时临时提升权限。<br><strong>nosuid</strong> 禁止suid操作和设定sgid位。<br><strong>noatime</strong> 不更新文件系统上的inode访问记录，可以提升性能。<br><strong>nodiratime</strong> 不更新文件系统上的目录inode访问记录，可以提升性能。<br><strong>relatime</strong> 实时更新文件系统上的inode访问记录。<br><strong>defaults</strong> 使用文件系统的默认挂载参数。</p>
 <hr>
