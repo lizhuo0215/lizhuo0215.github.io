@@ -35,6 +35,7 @@
 <hr>
 <p><strong>&lt;pass&gt; 设置fsck检查文件系统的检查顺序</strong><br>参数为0,1和2。<br>根目录为最高优先权，参数设置为1。<br>其他检查设备参数设置为2。<br>参数0表示不会被fsck检查。</p>
 <hr>
+<p>categories: Linux基础</p>
 ]]></content>
   </entry>
 </search>
